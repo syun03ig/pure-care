@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ - Pure Care</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="sub-header">
+    <div class="logo">Pure Care</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#features">Services</a></li>
+        <li><a href="store-info.html">Access</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="recruit.html">Recruit</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero" style="background: linear-gradient(135deg, #f0f9ff 0%, #cbebff 100%); height: 200px;">
+      <div class="page-hero-text">
+        <span class="sub-title" style="color: #4fc3f7; font-weight: 700;">CONTACT</span>
+        <h1 style="color: #334e5a; text-shadow: none;">お問い合わせ</h1>
+      </div>
+    </section>
+
+    <section class="page-content" style="background-color: #f8fbfc;">
+      <div class="container">
+        <div class="section-block" style="text-align: center; margin-bottom: 40px;">
+          <p style="color: #546e7a; line-height: 1.8;">ご質問やご相談など、お気軽にお問い合わせください。<br>
+          通常、2〜3営業日以内に担当者より折り返しご連絡を差し上げます。</p>
+        </div>
+
+        <div class="contact-form-wrapper" style="border-top: 4px solid #4fc3f7;">
+          <form action="#" class="contact-form">
+            
+            <div class="form-group">
+              <label for="name">お名前 <span class="required">必須</span></label>
+              <input type="text" id="name" name="name" placeholder="山田 太郎" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">メールアドレス <span class="required">必須</span></label>
+              <input type="email" id="email" name="email" placeholder="example@mail.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="type">お問い合わせ項目</label>
+              <div class="select-wrapper">
+                <select id="type" name="type" style="cursor: pointer;">
+                  <option value="consultation">オンライン相談について</option>
+                  <option value="service">サービス全般について</option>
+                  <option value="other">その他</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="message">メッセージ <span class="required">必須</span></label>
+              <textarea id="message" name="message" rows="6" placeholder="ご自由に入力してください" required></textarea>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+              <button type="submit" class="banner-btn" style="border: none; cursor: pointer; width: 100%; max-width: 400px; font-size: 1.1rem; padding: 20px;">同意して送信する</button>
+              <p style="font-size: 0.75rem; color: #999; margin-top: 15px;">※送信することでプライバシーポリシーに同意したことになります</p>
+            </div>
+            
+          </form>
+        </div>
+
+        <div style="text-align: center; margin-top: 60px;">
+          <a href="index.html" class="view-more" style="border: none; color: #999;">← トップページに戻る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="copyright">© 2026 Pure Care. All rights reserved.</p>
+    </div>
+  </footer>
+<script src="js/script.js"></script>
+</body>
+</html>
