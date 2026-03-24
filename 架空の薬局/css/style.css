@@ -1,0 +1,1029 @@
+/* =================================================
+   1. 全体設定 (Reset & Base)
+================================================= */
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color: #334e5a;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* =================================================
+   2. ヘッダー (Navigation)
+================================================= */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px;
+  background: transparent;
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+}
+
+.sub-header {
+  position: relative;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #4fc3f7;
+  letter-spacing: 3px;
+  text-decoration: none;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 20px;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.sub-header .logo { 
+  color: #4fc3f7; 
+}
+
+.sub-header nav ul li a { 
+  color: #334e5a; 
+  text-decoration: none; 
+}
+/* --- ナビゲーションメニューをボタン風に調整 --- */
+header nav ul {
+  display: flex;
+  gap: 15px; /* ボタン同士の間隔 */
+  list-style: none;
+}
+
+header nav ul li a {
+  display: inline-block;
+  padding: 8px 22px;
+  border: 2px solid #4fc3f7;   /* 清潔感のある水色の枠 */
+  border-radius: 25px;         /* 角を丸くして優しさを出す */
+  color: #4fc3f7;              /* 文字色も枠に合わせる */
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.7); /* 背景を少し白くして写真に埋もれないように */
+}
+
+/* マウスを乗せた（ホバー）時の動き */
+header nav ul li a:hover {
+  background-color: #4fc3f7;   /* 背景を水色で塗りつぶし */
+  color: #fff;                 /* 文字を白抜きに */
+  transform: translateY(-2px); /* ほんの少し浮き上がらせる */
+  box-shadow: 0 4px 10px rgba(79, 195, 247, 0.3);
+}
+
+/* 現在表示しているページのメニューを強調する場合（もしactiveクラスを使っていれば） */
+header nav ul li a.active {
+  background-color: #4fc3f7;
+  color: #fff;
+}
+
+/* =================================================
+   3. メインビジュアル (Hero Section)
+================================================= */
+.hero-slider {
+  position: relative;
+  width: 100%;
+  height: 60vh; 
+  overflow: hidden;
+}
+
+.slideshow::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 5;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center 20%;
+  opacity: 0;
+  animation: slideAnime 15s infinite;
+}
+
+.s1 { background-image: url('../images/hero1.jpg'); animation-delay: 0s; }
+.s2 { background-image: url('../images/hero2.jpg'); animation-delay: 5s; }
+.s3 { background-image: url('../images/hero3.jpg'); animation-delay: 10s; }
+
+@keyframes slideAnime {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  33% { opacity: 1; }
+  43% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.hero-text {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-weight: 500;
+  letter-spacing: 5px;
+  line-height: 1.4;
+}
+
+.hero-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 16px 45px;
+  /* ここが「塗りつぶし」の正体！ */
+  background-color: #4fc3f7; 
+  color: #fff;               /* 文字は白にして読みやすく */
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border-radius: 50px;
+  /* 影をつけると、写真から浮き上がってさらに見やすくなります */
+  box-shadow: 0 10px 25px rgba(79, 195, 247, 0.3);
+  transition: all 0.3s ease;
+  border: none;
+}
+
+/* マウスを乗せたときの動き */
+.hero-btn:hover {
+  background-color: #03a9f4; /* 少し濃い青になる */
+  transform: translateY(-3px); /* 3ピクセルだけ上に浮く */
+  box-shadow: 0 15px 30px rgba(79, 195, 247, 0.4);
+}
+/* =================================================
+   4. お知らせ (News)
+================================================= */
+.news {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.news-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.sub-title {
+  display: block;
+  font-size: 0.8rem;
+  color: #4fc3f7;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+.news h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.news-list {
+  list-style: none;
+  border-top: 1px solid #eee;
+}
+
+.news-list li {
+  border-bottom: 1px solid #eee;
+}
+
+.news-list a {
+  display: flex;
+  align-items: center;
+  padding: 15px 10px;
+  text-decoration: none;
+  color: #334e5a;
+  transition: background 0.3s;
+}
+
+.news-list a:hover {
+  background-color: #fcfcfc;
+}
+
+.date {
+  font-size: 0.85rem;
+  color: #999;
+  width: 110px;
+}
+
+.category {
+  font-size: 0.65rem;
+  color: #fff;
+  background: #4fc3f7;
+  padding: 2px 8px;
+  border-radius: 3px;
+  margin-right: 20px;
+  min-width: 70px;
+  text-align: center;
+}
+
+.title {
+  font-size: 0.95rem;
+  flex: 1;
+}
+
+.news-footer {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.view-more {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #334e5a;
+  text-decoration: none;
+  border-bottom: 1px solid #4fc3f7;
+  padding-bottom: 3px;
+}
+
+/* =================================================
+   5. 取り組み (Features)
+================================================= */
+.features {
+  padding: 80px 0;
+  background-color: #fcfcfc;
+}
+
+.features-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.features-header p {
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 10px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid #e0e0e0;
+  text-decoration: none;
+  color: inherit;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.feature-img {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.feature-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.feature-info {
+  padding: 15px 10px;
+  text-align: center;
+  background: #f8fbfc;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-info h3 {
+  font-size: 1rem;
+  color: #2c3e50;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1.3;
+}
+
+/* =================================================
+   6. よくあるご質問 (FAQ)
+================================================= */
+.faq {
+  padding: 80px 0;
+  background-color: #fff;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary {
+  display: block; 
+  padding: 22px 30px;
+  background-color: #f8fbfc;
+  font-weight: 700;
+  color: #334e5a;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  list-style: none;
+}
+
+.faq-item summary::before,
+.faq-item summary::after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  top: 50%;
+  width: 14px;
+  height: 2px;
+  background-color: #4fc3f7;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+}
+
+.faq-item summary::after { transform: translateY(-50%) rotate(90deg); }
+.faq-item summary::before { transform: translateY(-50%); }
+
+.faq-item[open] summary::before { background-color: #ff7043; transform: translateY(-50%) rotate(180deg); }
+.faq-item[open] summary::after { background-color: #ff7043; opacity: 0; }
+
+.faq-answer {
+  padding: 20px 30px 30px;
+  background-color: #fff;
+  line-height: 1.8;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* =================================================
+   7. 詳細ページ共通 (Sub Pages)
+================================================= */
+.page-hero {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-hero-img { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+}
+
+.page-hero-img img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  filter: brightness(0.7); 
+}
+
+.page-hero-text { 
+  position: relative; 
+  z-index: 2; 
+  text-align: center; 
+  color: #fff; 
+}
+
+.page-hero-text h1 { 
+  font-size: 2.2rem; 
+  font-weight: 700; 
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3); 
+}
+
+.page-content { 
+  padding: 80px 0; 
+  background-color: #f7fdff; 
+}
+
+.section-block { 
+  margin-bottom: 60px; 
+}
+
+.section-block h3 {
+  font-size: 1.5rem; 
+  color: #334e5a; 
+  margin-bottom: 30px; 
+  text-align: center;
+  border-bottom: 2px solid #4fc3f7; 
+  display: inline-block;
+  position: relative; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  padding-bottom: 5px;
+}
+
+.step-grid { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 25px; 
+  margin-top: 40px; 
+}
+
+.step-card {
+  background: #fff; 
+  padding: 40px 20px; 
+  border-radius: 15px;
+  text-align: center; 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.step-num { 
+  font-size: 0.9rem; 
+  color: #4fc3f7; 
+  font-weight: bold; 
+  display: block; 
+  margin-bottom: 10px; 
+}
+
+.check-list { 
+  list-style: none; 
+  max-width: 500px; 
+  margin: 0 auto; 
+}
+
+.check-list li { 
+  position: relative; 
+  padding-left: 30px; 
+  margin-bottom: 15px; 
+  color: #555; 
+}
+
+.check-list li::before { 
+  content: "✓"; 
+  position: absolute; 
+  left: 0; 
+  color: #4fc3f7; 
+  font-weight: bold; 
+}
+
+/* =================================================
+   8. 店舗案内専用 (Store Info)
+================================================= */
+.info-table-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.info-table th, .info-table td {
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+}
+
+.info-table th {
+  background-color: #f8fbfc;
+  color: #4fc3f7;
+  width: 30%;
+  font-weight: 700;
+}
+
+.info-table tr:last-child th, .info-table tr:last-child td {
+  border-bottom: none;
+}
+
+.map-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* コンセプトバナー */
+.concept-banner {
+  background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid #4fc3f7;
+  text-align: center;
+  margin: 40px auto;
+  max-width: 800px;
+  position: relative;
+  overflow: hidden;
+}
+
+.concept-banner::before {
+  content: "Pure Care";
+  position: absolute;
+  bottom: -20px;
+  right: -10px;
+  font-size: 5rem;
+  font-weight: 800;
+  color: rgba(79, 195, 247, 0.05);
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-sub {
+  color: #4fc3f7;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.concept-banner h3 {
+  margin: 15px 0;
+  color: #334e5a;
+  font-size: 1.4rem;
+}
+
+.concept-banner p {
+  font-size: 0.95rem;
+  color: #78909c;
+  margin-bottom: 25px;
+}
+
+.banner-btn {
+  display: inline-block;
+  background-color: #4fc3f7;
+  color: #fff;
+  padding: 12px 35px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(79, 195, 247, 0.3);
+  transition: all 0.3s;
+}
+
+.banner-btn:hover {
+  background-color: #03a9f4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 195, 247, 0.4);
+}
+
+/* =================================================
+   9. 私たちの想い専用 (Interview)
+================================================= */
+.interview-section {
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  margin-bottom: 60px;
+}
+
+.interview-header h2 {
+  font-size: 2rem;
+  color: #334e5a;
+  text-align: center;
+  margin-bottom: 50px;
+  line-height: 1.5;
+}
+
+.interview-content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+.interview-image {
+  flex: 1;
+}
+
+.interview-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.interview-text {
+  flex: 1.5;
+}
+
+.interview-text .highlight {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #4fc3f7;
+  margin-bottom: 20px;
+  border-left: 4px solid #4fc3f7;
+  padding-left: 15px;
+}
+
+.interview-text p {
+  margin-bottom: 20px;
+  color: #546e7a;
+}
+
+.profile-block {
+  background: #f8fbfc;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.profile-block h3 {
+  color: #334e5a;
+  margin-bottom: 20px;
+}
+
+.profile-block .name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.profile-block .name span {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #999;
+}
+
+/* =================================================
+   10. フッター (Footer)
+================================================= */
+footer {
+  background-color: #334e5a;
+  color: #fff;
+  padding: 60px 0 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.footer-left .logo { 
+  color: #fff; 
+  margin-bottom: 10px; 
+}
+
+.footer-left p { 
+  font-size: 0.85rem; 
+  opacity: 0.8; 
+}
+
+.footer-nav ul { 
+  display: flex; 
+  list-style: none; 
+  gap: 30px; 
+}
+
+.footer-nav a { 
+  color: #fff; 
+  text-decoration: none; 
+  font-size: 0.9rem; 
+}
+
+.copyright {
+  text-align: center;
+  font-size: 0.75rem;
+  opacity: 0.5;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 20px;
+}
+
+/* =================================================
+   11. レスポンシブ (Media Queries)
+================================================= */
+@media (max-width: 960px) {
+  header { padding: 20px; flex-direction: column; gap: 15px; }
+  .feature-grid { grid-template-columns: repeat(3, 1fr) !important; gap: 10px; }
+  .hero-text h1 { font-size: 1.8rem !important; }
+}
+
+@media (max-width: 768px) {
+  .step-grid { grid-template-columns: 1fr; }
+  .interview-content { flex-direction: column; }
+}
+
+@media (max-width: 600px) {
+  .info-table th, .info-table td {
+    display: block;
+    width: 100%;
+  }
+  .info-table th {
+    padding-bottom: 5px;
+    background: #fff;
+  }
+}
+/* =================================================
+   12. 私たちの想いページ (Concept / Interview) ブラッシュアップ
+================================================= */
+/* 背景に少しだけ変化をつけて、読み物としての質感を出す */
+.page-content.concept-bg {
+  background: linear-gradient(to bottom, #f7fdff 0%, #ffffff 100%);
+}
+
+.interview-section {
+  background: #fff;
+  padding: 60px;
+  border-radius: 30px;
+  margin-bottom: 80px;
+  box-shadow: 0 20px 40px rgba(79, 195, 247, 0.05); /* ほんのり青い影 */
+  position: relative;
+}
+
+.interview-header {
+  margin-bottom: 60px;
+}
+
+.interview-header h2 {
+  font-size: 2.2rem;
+  color: #334e5a;
+  text-align: center;
+  line-height: 1.8;
+  font-weight: 700;
+  letter-spacing: 0.15em; /* 文字の間隔を広げて上品に */
+}
+
+.interview-content {
+  display: flex;
+  gap: 60px;
+  align-items: center; /* 写真と文章の高さを中央で揃える */
+}
+
+.interview-image {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+/* 写真の背後にアクセントの装飾（水色の枠）を追加 */
+.interview-image::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #4fc3f7;
+  border-radius: 20px;
+  z-index: -1;
+}
+
+.interview-image img {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.interview-text {
+  flex: 1.2;
+}
+
+.interview-text .highlight {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #4fc3f7;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  border-left: 6px solid #4fc3f7; /* 縦棒を少し太くして強調 */
+  padding-left: 20px;
+}
+
+.interview-text p {
+  margin-bottom: 25px;
+  color: #546e7a;
+  font-size: 1.05rem;
+  text-align: justify; /* 文の右端を揃えて美しく */
+  line-height: 1.9;    /* 行間を広げて読みやすく */
+}
+
+/* プロフィール部分を少し控えめに、でも信頼感あるデザインに */
+.profile-block {
+  background: #f8fbfc;
+  padding: 30px 40px;
+  border-radius: 20px;
+  border-left: 4px solid #4fc3f7;
+  max-width: 800px;
+  margin: 40px auto 0;
+}
+
+/* スマホ表示の調整（さらに見やすく） */
+@media (max-width: 768px) {
+  .interview-section {
+    padding: 30px 20px;
+  }
+  .interview-header h2 {
+    font-size: 1.5rem;
+  }
+  .interview-content {
+    flex-direction: column; /* 縦並びに切り替え */
+    gap: 40px;
+  }
+  .interview-image::after {
+    display: none; /* スマホでは装飾を消してスッキリさせる */
+  }
+  .interview-text .highlight {
+    font-size: 1.2rem;
+  }
+}
+/* =================================================
+   13. お問い合わせフォーム (Contact Form)
+================================================= */
+.contact-form-wrapper {
+  max-width: 700px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #334e5a;
+  font-size: 0.95rem;
+}
+
+.required {
+  background: #ff7043;
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* 入力エリアのスタイル */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: #fcfcfc;
+  transition: all 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #4fc3f7;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(79, 195, 247, 0.1);
+}
+
+/* =================================================
+   11. レスポンシブ (Media Queries)
+================================================= */
+
+/* 画面の横幅が960px以下のとき（タブレットや画面分割時） */
+@media (max-width: 960px) {
+  header {
+    padding: 15px 20px; /* 上下の余白を半分に、左右も狭く */
+  }
+
+  .logo {
+    font-size: 1.5rem; /* ロゴを少し小さく */
+    letter-spacing: 1px;
+  }
+
+  header nav ul {
+    gap: 8px; /* ボタン同士の間隔をギュッと詰める */
+  }
+
+  header nav ul li a {
+    padding: 6px 12px; /* ボタンの中の余白を小さく */
+    font-size: 0.8rem;  /* 文字を少し小さく */
+  }
+}
+
+/* 画面の横幅が600px以下のとき（スマホ） */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column; /* ロゴとメニューを上下に分ける */
+    gap: 8px;
+    padding: 10px 5px;      /* 左右の余白をほぼゼロにして幅を稼ぐ */
+  }
+
+  .logo {
+    font-size: 1.2rem;      /* ロゴをさらに小さく */
+  }
+
+  header nav ul {
+    gap: 4px;               /* ボタン同士の隙間を最小限に */
+    justify-content: center;
+    width: 100%;            /* 横幅いっぱいに使う */
+  }
+
+  header nav ul li {
+    margin-left: 0;         /* 元々の余白を消す */
+  }
+
+  header nav ul li a {
+    padding: 4px 8px;       /* ボタンの中の余白を極限まで小さく */
+    font-size: 0.65rem;     /* 文字をかなり小さく（これ以上小さいと読めないので限界値） */
+    letter-spacing: 0;      /* 文字の間隔を詰める */
+  }
+
+  .hero-text h1 {
+    font-size: 1.4rem !important;
+  }
+  /* --- フッターのスマホ調整 --- */
+  footer .footer-content {
+    flex-direction: column; /* ロゴとメニューを縦に並べる */
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .footer-nav ul {
+    flex-wrap: wrap;        /* 入りきらないときは折り返す */
+    justify-content: center; /* 中央に寄せる */
+    gap: 15px 20px;         /* 上下と左右にほどよい隙間をあける */
+  }
+
+  .footer-nav a {
+    font-size: 0.8rem;      /* 文字を少しだけ小さく */
+    display: block;
+    padding: 5px;           /* 押しやすいように余白を確保 */
+  }
+}
+/* --- ふわっと浮き上がる動きの定義 --- */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* 画面に現れた時に適用されるクラス */
+.fade-up.is-show {
+  opacity: 1;
+  transform: translateY(0);
+}
