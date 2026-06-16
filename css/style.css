@@ -171,24 +171,21 @@ header nav ul li a.active {
   display: inline-block;
   margin-top: 30px;
   padding: 16px 45px;
-  /* ここが「塗りつぶし」の正体！ */
   background-color: #4fc3f7; 
-  color: #fff;               /* 文字は白にして読みやすく */
+  color: #fff;               
   text-decoration: none;
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 2px;
   border-radius: 50px;
-  /* 影をつけると、写真から浮き上がってさらに見やすくなります */
   box-shadow: 0 10px 25px rgba(79, 195, 247, 0.3);
   transition: all 0.3s ease;
   border: none;
 }
 
-/* マウスを乗せたときの動き */
 .hero-btn:hover {
-  background-color: #03a9f4; /* 少し濃い青になる */
-  transform: translateY(-3px); /* 3ピクセルだけ上に浮く */
+  background-color: #03a9f4; 
+  transform: translateY(-3px); 
   box-shadow: 0 15px 30px rgba(79, 195, 247, 0.4);
 }
 /* =================================================
@@ -276,7 +273,7 @@ header nav ul li a.active {
 }
 
 /* =================================================
-   5. 取り組み (Features)
+   5. 一番身近な相談相手 (Features)
 ================================================= */
 .features {
   padding: 80px 0;
@@ -555,7 +552,7 @@ header nav ul li a.active {
   margin: 0 auto;
 }
 
-/* コンセプトバナー */
+/* コンセプトバナー（バグ修正） */
 .concept-banner {
   background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
   padding: 40px;
@@ -591,10 +588,16 @@ header nav ul li a.active {
   letter-spacing: 2px;
 }
 
+/* ⬇️ここが最重要！バナーの中の見出し位置のズレを打ち消す設定を追加 */
 .concept-banner h3 {
   margin: 15px 0;
   color: #334e5a;
   font-size: 1.4rem;
+  border-bottom: none;     /* 下線を消す */
+  display: block;          /* 幅いっぱいに広げる */
+  position: static;        /* 特殊な位置指定を解除 */
+  transform: none;         /* 横ずれ用の設定をリセット */
+  padding-bottom: 0;
 }
 
 .concept-banner p {
@@ -771,7 +774,6 @@ footer {
 /* =================================================
    12. 私たちの想いページ (Concept / Interview) ブラッシュアップ
 ================================================= */
-/* 背景に少しだけ変化をつけて、読み物としての質感を出す */
 .page-content.concept-bg {
   background: linear-gradient(to bottom, #f7fdff 0%, #ffffff 100%);
 }
@@ -781,7 +783,7 @@ footer {
   padding: 60px;
   border-radius: 30px;
   margin-bottom: 80px;
-  box-shadow: 0 20px 40px rgba(79, 195, 247, 0.05); /* ほんのり青い影 */
+  box-shadow: 0 20px 40px rgba(79, 195, 247, 0.05); 
   position: relative;
 }
 
@@ -795,13 +797,13 @@ footer {
   text-align: center;
   line-height: 1.8;
   font-weight: 700;
-  letter-spacing: 0.15em; /* 文字の間隔を広げて上品に */
+  letter-spacing: 0.15em; 
 }
 
 .interview-content {
   display: flex;
   gap: 60px;
-  align-items: center; /* 写真と文章の高さを中央で揃える */
+  align-items: center; 
 }
 
 .interview-image {
@@ -810,7 +812,6 @@ footer {
   z-index: 1;
 }
 
-/* 写真の背後にアクセントの装飾（水色の枠）を追加 */
 .interview-image::after {
   content: "";
   position: absolute;
@@ -840,7 +841,7 @@ footer {
   color: #4fc3f7;
   margin-bottom: 30px;
   line-height: 1.6;
-  border-left: 6px solid #4fc3f7; /* 縦棒を少し太くして強調 */
+  border-left: 6px solid #4fc3f7; 
   padding-left: 20px;
 }
 
@@ -848,11 +849,10 @@ footer {
   margin-bottom: 25px;
   color: #546e7a;
   font-size: 1.05rem;
-  text-align: justify; /* 文の右端を揃えて美しく */
-  line-height: 1.9;    /* 行間を広げて読みやすく */
+  text-align: justify; 
+  line-height: 1.9;    
 }
 
-/* プロフィール部分を少し控えめに、でも信頼感あるデザインに */
 .profile-block {
   background: #f8fbfc;
   padding: 30px 40px;
@@ -862,7 +862,6 @@ footer {
   margin: 40px auto 0;
 }
 
-/* スマホ表示の調整（さらに見やすく） */
 @media (max-width: 768px) {
   .interview-section {
     padding: 30px 20px;
@@ -871,11 +870,11 @@ footer {
     font-size: 1.5rem;
   }
   .interview-content {
-    flex-direction: column; /* 縦並びに切り替え */
+    flex-direction: column; 
     gap: 40px;
   }
   .interview-image::after {
-    display: none; /* スマホでは装飾を消してスッキリさせる */
+    display: none; 
   }
   .interview-text .highlight {
     font-size: 1.2rem;
@@ -915,7 +914,6 @@ footer {
   vertical-align: middle;
 }
 
-/* 入力エリアのスタイル */
 .contact-form input[type="text"],
 .contact-form input[type="email"],
 .contact-form select,
@@ -940,89 +938,85 @@ footer {
 }
 
 /* =================================================
-   11. レスポンシブ (Media Queries)
+   14. レスポンシブ追加設定 (Media Queries)
 ================================================= */
-
-/* 画面の横幅が960px以下のとき（タブレットや画面分割時） */
 @media (max-width: 960px) {
   header {
-    padding: 15px 20px; /* 上下の余白を半分に、左右も狭く */
+    padding: 15px 20px; 
   }
 
   .logo {
-    font-size: 1.5rem; /* ロゴを少し小さく */
+    font-size: 1.5rem; 
     letter-spacing: 1px;
   }
 
   header nav ul {
-    gap: 8px; /* ボタン同士の間隔をギュッと詰める */
+    gap: 8px; 
   }
 
   header nav ul li a {
-    padding: 6px 12px; /* ボタンの中の余白を小さく */
-    font-size: 0.8rem;  /* 文字を少し小さく */
+    padding: 6px 12px; 
+    font-size: 0.8rem;  
   }
 }
 
-/* 画面の横幅が600px以下のとき（スマホ） */
 @media (max-width: 600px) {
   header {
-    flex-direction: column; /* ロゴとメニューを上下に分ける */
+    flex-direction: column; 
     gap: 8px;
-    padding: 10px 5px;      /* 左右の余白をほぼゼロにして幅を稼ぐ */
+    padding: 10px 5px;      
   }
 
   .logo {
-    font-size: 1.2rem;      /* ロゴをさらに小さく */
+    font-size: 1.2rem;      
   }
 
   header nav ul {
-    gap: 4px;               /* ボタン同士の隙間を最小限に */
+    gap: 4px;               
     justify-content: center;
-    width: 100%;            /* 横幅いっぱいに使う */
+    width: 100%;            
   }
 
   header nav ul li {
-    margin-left: 0;         /* 元々の余白を消す */
+    margin-left: 0;         
   }
 
   header nav ul li a {
-    padding: 4px 8px;       /* ボタンの中の余白を極限まで小さく */
-    font-size: 0.65rem;     /* 文字をかなり小さく（これ以上小さいと読めないので限界値） */
-    letter-spacing: 0;      /* 文字の間隔を詰める */
+    padding: 4px 8px;       
+    font-size: 0.65rem;     
+    letter-spacing: 0;      
   }
 
   .hero-text h1 {
     font-size: 1.4rem !important;
   }
-  /* --- フッターのスマホ調整 --- */
+
   footer .footer-content {
-    flex-direction: column; /* ロゴとメニューを縦に並べる */
+    flex-direction: column; 
     align-items: center;
     text-align: center;
     gap: 30px;
   }
 
   .footer-nav ul {
-    flex-wrap: wrap;        /* 入りきらないときは折り返す */
-    justify-content: center; /* 中央に寄せる */
-    gap: 15px 20px;         /* 上下と左右にほどよい隙間をあける */
+    flex-wrap: wrap;        
+    justify-content: center; 
+    gap: 15px 20px;         
   }
 
   .footer-nav a {
-    font-size: 0.8rem;      /* 文字を少しだけ小さく */
+    font-size: 0.8rem;      
     display: block;
-    padding: 5px;           /* 押しやすいように余白を確保 */
+    padding: 5px;           
   }
 }
-/* --- ふわっと浮き上がる動きの定義 --- */
+
 .fade-up {
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
-/* 画面に現れた時に適用されるクラス */
 .fade-up.is-show {
   opacity: 1;
   transform: translateY(0);
